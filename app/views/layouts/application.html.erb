@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>FacebookClone</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <nav class="navbar navbar-inverse">
+      <div class="container">
+          <!-- Start Header Navigation -->
+          <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                  <i class="fa fa-bars"></i>
+              </button>
+              <a class="navbar-brand" href="#brand">Facebook-clone</a>
+          </div>
+          <!-- End Header Navigation -->
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="navbar-menu">
+
+              <ul class="nav navbar-nav navbar-right">
+                <% if user_signed_in? %>
+                  <li><%= link_to "ホーム", topics_path %></li>
+                  <li><%= link_to "ユーザー一覧", root_path %></li>
+                  <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete  %></li>
+                <% else %>
+                  <li><%= link_to "サインイン", new_user_session_path %></li>
+                  <li><%= link_to "サインアップ", new_user_registration_path  %></li>
+                  <% end %>
+              </ul>
+          </div><!-- /.navbar-collapse -->
+      </div>
+  </nav>
+
+<%= yield %>
+
+<footer>
+  誰か
+  </footer>
+</body>
+</html>

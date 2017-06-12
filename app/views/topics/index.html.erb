@@ -1,0 +1,20 @@
+<div class="center-block">
+  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+<p id="notice"><%= notice %></p>
+<div class="row">
+<p class="text-center"><%= render 'form'%></p>
+</div>
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <p><%= topic.content %></p>
+        <td><%= link_to 'Show', topic %></td>
+        <td><%= link_to 'Edit', topics_path(id: topic.id) %></td>
+        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
