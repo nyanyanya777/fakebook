@@ -7,6 +7,7 @@
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
+        <p><%= profile_img(topic.user) %></p>
         <p><%= topic.user.name %></p>
         <p><%= topic.content %></p>
         <td><%= link_to 'Show', topic %></td>

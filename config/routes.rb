@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+  registrations: "users/registrations",
+  omniauth_callbacks: "users/omniauth_callbacks"
+  }
   resources :topics
+  root 'topics#index'
+  match '*path' => 'application#error404', via: :all
   if Rails.env.development?
   mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end

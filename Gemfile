@@ -38,10 +38,15 @@ group :development, :test do
   gem 'letter_opener_web'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-
+  gem 'dotenv-rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
   gem 'rails_12factor', group: :production
   gem 'twitter-bootstrap-rails'
   gem 'devise'
+  gem 'omniauth'
+  gem 'omniauth-twitter'
+  gem 'omniauth-facebook'
+  gem 'carrierwave'
+  gem 'rmagick'
