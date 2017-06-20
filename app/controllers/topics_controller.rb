@@ -2,8 +2,6 @@ class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  # GET /topics
-  # GET /topics.json
   def index
    @topics = Topic.all
 
@@ -14,13 +12,11 @@ class TopicsController < ApplicationController
    end
   end
 
-  # GET /topics/1
-  # GET /topics/1.json
   def show
+  @comment = @topic.comment.build
+  @comments = @topic.comment
   end
 
-  # POST /topics
-  # POST /topics.json
   def create
     @topic = Topic.new(topic_params)
     @topic.user_id = current_user.id
@@ -50,8 +46,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  # DELETE /topics/1
-  # DELETE /topics/1.json
   def destroy
     @topic.destroy
     respond_to do |format|
@@ -68,6 +62,6 @@ class TopicsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def topic_params
-      params.require(:topic).permit(:content)
+      params.require(:topic).permit(:content, :photo)
     end
 end

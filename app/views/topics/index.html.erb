@@ -10,9 +10,10 @@
         <p><%= profile_img(topic.user) %></p>
         <p><%= topic.user.name %></p>
         <p><%= topic.content %></p>
-        <td><%= link_to 'Show', topic %></td>
-        <td><%= link_to 'Edit', topics_path(id: topic.id) %></td>
-        <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>
+        <p><%= image_tag(topic.photo) %></p>
+        <td><%= link_to 'コメント', topic_path(topic[:id])%></td>
+        <td><%= link_to '編集', edit_topic_path(id: topic.id) %></td>
+        <td><%= link_to '削除', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
