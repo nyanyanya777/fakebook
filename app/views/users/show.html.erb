@@ -1,0 +1,34 @@
+<div class="continer">
+  <div class="row">
+    <h4>フォローしているユーザー</h4>
+      <div class="cat">
+        <% @user.followed_users.each do |user| %>
+        <li>
+          <%= profile_img(user) %>
+        </br>
+        </br>
+      <%= user.name %>
+        </br>
+        </br>
+      <%= render 'follow_form', user:user %>
+      </li>
+        <% end %>
+       </div>
+  </div>
+</br>
+<div class="continer">
+   <div class="row">
+    <h4>フォローされているユーザー</h4>
+        <% @user.followed_users.each do |user| %>
+        <li>
+          <%= profile_img(@user) %>
+        </br>
+      　</br>
+          <%= user.name %>
+        </br>
+      　</br>
+          <%= render 'follow_form', user:user %>
+          <% end %>
+        </li>
+　  </div>
+</div>

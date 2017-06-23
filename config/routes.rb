@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'comments/create'
 
   devise_for :users, controllers: {
   registrations: "users/registrations",
@@ -7,6 +6,13 @@ Rails.application.routes.draw do
   }
 
   root 'topics#index'
+
+  resources :users
+  resources :relationships
+
+  resources :conversations do
+    resources :messages
+  end
 
   resources :topics do
     resources :comments
