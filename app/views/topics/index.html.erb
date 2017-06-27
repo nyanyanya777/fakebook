@@ -1,9 +1,10 @@
-<div class="center-block">
-  <div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+<div class="container">
 <p id="notice"><%= notice %></p>
 <div class="row">
+  <div class="col-sm-4">
+   </div>
+  <div class="col-sm-4">
 <p class="text-center"><%= render 'form'%></p>
-</div>
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
@@ -17,7 +18,8 @@
       </tr>
     <% end %>
   </tbody>
-</table>
-</div>
+  </div>
+  <div class="col-sm-4">
+   </div>
 </div>
 </div>

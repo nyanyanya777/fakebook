@@ -1,5 +1,5 @@
-<%= form_for([topic,comment], remote: true) do |f| %>
-  <% if comment.errors.any? %>
+<%= form_for([@topic,@comment], remote: true) do |f| %>
+  <% if @comment.errors.any? %>
     <div id="error_explanation">
       <h2><%= comment.errors.count %>件のエラーがあります。</h2>
 
@@ -15,6 +15,6 @@
     <%= f.text_field :content, placeholder: "内容", class: "form-control"  %>
   </div>
   <div class="actions">
-    <%= f.submit'コメントする' , class: 'btn btn-primary btn-block' %>
+    <%= f.submit %>
   </div>
 <% end %>
