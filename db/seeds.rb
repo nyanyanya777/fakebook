@@ -11,5 +11,3 @@ n = 1
     content: content
   )
 end
-
-end
