@@ -447,5 +447,6 @@ template {
 }
 
 img{
-  max-width: 100%;
+  width: 50px;
+  length: 50px;
 }

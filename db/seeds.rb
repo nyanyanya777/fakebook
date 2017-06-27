@@ -1,12 +1,14 @@
-50.times do
-  follower_id = [*1..20].sample
-  followed_id = [*1..20].sample
-  while follower_id == followed_id
-    followed_id = [*1..20].sample
-  end
-    Relationship.find_or_create_by(
-    follower_id: follower_id,
-    followed_id: followed_id
-  )
-
+n = 1
+20.times do |n|
+email = Faker::Internet.email
+name = Faker::LordOfTheRings.character
+password = Faker::Internet.password
+uid = SecureRandom.uuid
+User.create(
+email: email,
+name: name,
+password: password,
+password_confirmation: password,
+uid: uid,
+)
 end

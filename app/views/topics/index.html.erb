@@ -6,19 +6,18 @@
   <div class="col-sm-4">
 <p class="text-center"><%= render 'form'%></p>
 </br>
-  <div class="panel panel-default">
     <p><% @topics.each do |topic| %></p>
-      <div class="panel-heading">
-        <p><%= profile_img(topic.user) %></p>
-      <% if current_user.id == @topic.user_id %>
-      <td><%= link_to '編集', edit_topic_path(id: topic.id) %></td>
-      <td><%= link_to '削除', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></div>
-      <% end %>
-      <div class="panel-body">
-        <p><%= topic.user.name %></p>
+      <div class="well">
+        <%= profile_img(topic.user) %>
+        <%= topic.user.name %>
+      </br>
         <p><%= topic.content %></p>
         <p><%= image_tag(topic.photo) %></p>
         <td><%= link_to 'コメントする', topic_path(topic[:id])%></td>
+        <% if topic.user.id == current_user.id %>
+        <td><%= link_to '編集', edit_topic_path(id: topic.id) %></td>
+        <td><%= link_to '削除', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></div>
+        <% end %>
       </div>
     </div>
 
