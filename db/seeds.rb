@@ -8,3 +8,5 @@
     follower_id: follower_id,
     followed_id: followed_id
   )
+
+end
