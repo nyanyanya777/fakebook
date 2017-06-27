@@ -2,9 +2,9 @@
 n = 1
 
 20.times do |n|
-Topic.create(
+Topic.create!(
 content: iine,
-user_id: 1
+user_id: 5
 )
 
 end
