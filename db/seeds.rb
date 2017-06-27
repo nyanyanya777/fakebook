@@ -5,8 +5,8 @@ n = 1
 user.id =3
 content = "天気明朗なれど波高し"
 Topic.create!(
-content: content,
 user_id: user_id,
+content: content,
 )
 
 end
