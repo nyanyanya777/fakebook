@@ -61,3 +61,4 @@ end
   gem 'therubyracer', platforms: :ruby
   gem 'dotenv-rails'
   gem 'unicorn'
+  gem 'faker'
