@@ -3,7 +3,7 @@ n = 1
 
 20.times do |n|
 Topic.create(
-content: 眠い,
+content: iine,
 user_id: 1
 )
 
