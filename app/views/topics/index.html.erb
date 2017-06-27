@@ -1,21 +1,25 @@
 <div class="container">
-<p id="notice"><%= notice %></p>
+<div class="text-center"><%= notice %></div>
 <div class="row">
   <div class="col-sm-4">
    </div>
   <div class="col-sm-4">
 <p class="text-center"><%= render 'form'%></p>
+</br>
   <tbody>
     <% @topics.each do |topic| %>
       <tr>
         <p><%= profile_img(topic.user) %></p>
+      <% if current_user.id == @topic.user_id %>
+      <td><%= link_to '編集', edit_topic_path(id: topic.id) %></td>
+      <td><%= link_to '削除', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>
+      </tr>
+      <% end %>
         <p><%= topic.user.name %></p>
         <p><%= topic.content %></p>
         <p><%= image_tag(topic.photo) %></p>
-        <td><%= link_to 'コメント', topic_path(topic[:id])%></td>
-        <td><%= link_to '編集', edit_topic_path(id: topic.id) %></td>
-        <td><%= link_to '削除', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></td>
-      </tr>
+        <td><%= link_to 'コメントする', topic_path(topic[:id])%></td>
+
     <% end %>
   </tbody>
   </div>
