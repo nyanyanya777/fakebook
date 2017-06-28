@@ -1,7 +1,7 @@
 n = 1
 100.times do |n|
   content = Faker::LordOfTheRings.character
-  user_id = 101
+  user_id = 1
   Topic.create(
   content: content,
   user_id: user_id,
