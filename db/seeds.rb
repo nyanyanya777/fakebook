@@ -1,4 +1,4 @@
-n = 1
+n = 2
 10.times do |n|
   content = Faker::LordOfTheRings.character
   user_id = 86
