@@ -9,7 +9,7 @@ n = 1
 end
 
 20.times do
-  user_id = [*1..100].sample
+  user_id = 102
   topic_id = [*123..133].sample
   content = "眠い"
   Comment.create!(
