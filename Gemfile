@@ -62,3 +62,5 @@ end
   gem 'dotenv-rails'
   gem 'unicorn'
   gem 'faker'
+  gem 'kaminari'
+  gem 'kaminari-bootstrap'

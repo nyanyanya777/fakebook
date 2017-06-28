@@ -1,45 +1,24 @@
-<div class="continer">
-  <div class="row">
-    <div class="col-sm-6">
-    <h4>フォローしているユーザー</h4>
-      <div class="cat">
-        <% @user.followed_users.each do |user| %>
-        <li>
-          <%= profile_img(user) %>
-        </br>
-        </br>
-      <%= user.name %>
-        </br>
-        </br>
-      <%= render 'follow_form', user:user %>
-      </li>
-        <% end %>
-       </div>
-  </div>
-  </div>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-</br>
-<div class="continer">
-   <div class="row">
-     <div class="col-sm-6">
-    <h4>フォローされているユーザー</h4>
-        <% @user.followed_users.each do |user| %>
-        <li>
-          <%= profile_img(@user) %>
-        </br>
-      　</br>
-          <%= user.name %>
-        </br>
-      　</br>
-          <%= render 'follow_form', user:user %>
-          <% end %>
-        </li>
-　  </div>
-</div>
-</div>
+<div class="container">
+
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#tab1" data-toggle="tab">フォロー</a></li>
+  <li><a href="#tab2" data-toggle="tab">フォロワー</a></li>
+</ul>
+ 
+<div class="tab-content">
+  <div class="tab-pane active" id="tab1">Tab1 Content
+    <table class="table">
+    <% @user.followed_users.each do |user| %>
+    <tr><td><%= profile_img(user) %></td>
+      <td><%= user.name %></td>
+      <td><%= render 'follow_form', user:user %><td></tr>
+        <% end %></table></div>
+      <div class="tab-pane" id="tab2">
+     <table class="table">
+        <% @user.followers.each do |user| %>
+    <tr><td><%= profile_img(@user) %></td>
+        <td><%= user.name %></td>
+        <td><%= render 'follow_form', user:user %><td></tr>
+          <% end %></table>
+        </div>
+      </div>

@@ -1,14 +1,21 @@
 n = 1
-20.times do |n|
-email = Faker::Internet.email
-name = Faker::LordOfTheRings.character
-password = Faker::Internet.password
-uid = SecureRandom.uuid
-User.create(
-email: email,
-name: name,
-password: password,
-password_confirmation: password,
-uid: uid,
-)
+100.times do |n|
+  content = Faker::LordOfTheRings.character
+  user_id = 101
+  Topic.create(
+  content: content,
+  user_id: user_id,
+  )
+end
+
+100.times do |n|
+  follower_id = [*1..101].sample
+  followed_id = [*1..101].sample
+  while follower_id == followed_id
+    followed_id = [*1..100].sample
+  end
+    Relationship.find_or_create_by(
+    follower_id: follower_id,
+    followed_id: followed_id
+  )
 end
