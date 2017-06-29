@@ -6,23 +6,22 @@
 <p class="text-center"><%= render 'form'%></p>
 </br>
     <p><% @topics.each do |topic| %></p>
-        <div class="box11">
+  </br>
         <%= profile_img(topic.user) %>
         <%= topic.user.name %>
       </br>
+        <%= topic.content %>
+        <%= image_tag(topic.photo) %>
       </br>
-        <p><%= topic.content %></p>
-        <th><%= image_tag(topic.photo) %></th>
-      </br>
+        <div ="cat">
         <%= link_to 'コメントする', topic_path(topic[:id])%>
         <% if topic.user.id == current_user.id %>
         <%= link_to '編集', edit_topic_path(id: topic.id) %>
-        <%= link_to '削除', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></div>
-
+        <%= link_to '削除', topic, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+      </div>
         <% end %>
       <% end %>
-    <%= paginate @topics %>
-      </div>
+      <p><%= paginate @topics %></p>
   <div class="col-sm-4">
    </div>
 </div>
