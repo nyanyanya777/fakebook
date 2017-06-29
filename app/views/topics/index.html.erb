@@ -11,7 +11,7 @@
         <%= topic.user.name %>
       </br>
         <%= topic.content %>
-        <%= image_tag(topic.photo) %>
+        <p><%= image_tag(topic.photo) %></p>
       </br>
         <div ="cat">
         <%= link_to 'コメントする', topic_path(topic[:id])%>
