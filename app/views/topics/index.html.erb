@@ -10,8 +10,9 @@
         <%= profile_img(topic.user) %>
         <%= topic.user.name %>
       </br>
-        <%= topic.content %>
-        <p><%= image_tag(topic.photo) %></p>
+        <p><%= topic.content %>
+      </br>
+        <p neko><%= image_tag(topic.photo) %></p>
       </br>
         <div ="cat">
         <%= link_to 'コメントする', topic_path(topic[:id])%>

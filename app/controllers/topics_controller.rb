@@ -1,10 +1,10 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
   before_action :authenticate_user!
 
   def index
    @topics = Topic.page(params[:page])
-
    if params[:id].present?
      set_topic
    else
@@ -29,7 +29,8 @@ class TopicsController < ApplicationController
     end
 
   def update
-  if @topic.update(topic_params)
+  if @topic.user_id = current_user.id
+    @topic.update(topic_params)
      redirect_to @topic, notice: '編集しました'
   else
      redirect_to @topic, notice: '何か問題があります'
@@ -48,6 +49,12 @@ end
     def set_topic
       @topic = Topic.find(params[:id])
     end
+
+    def correct_user
+      unless @topic.user.id == current_user.id
+      redirect_to  request.referer
+    end
+  end
 
     def topic_params
       params.require(:topic).permit(:content, :photo)
